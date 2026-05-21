@@ -7,7 +7,7 @@ def get_ans(task, lang="python, ввод данных осуществляетс
 
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-    AUTH_KEY = "MDE5OWMyZTItMjUxZi03ZDZkLWI4ZDEtZTQ2NzU3ZGEwMzgyOjY5MDZkMDYyLWQ2MzUtNDRjNy04Mzc0LTkyZGU5YmY0YjAwMQ=="
+    AUTH_KEY = "DE5OWMyZTItMjUxZi03ZDZkLWI4ZDEtZTQ2NzU3ZGEwMzgyOjY5MDZkMDYyLWQ2MzUtNDRjNy04Mzc0LTkyZGU5YmY0YjAwMQ=="
 
     # =========================
     # Получение access token
