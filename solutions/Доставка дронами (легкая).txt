@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    vector <int> d;
+    int a;
+    while (cin >> a)
+        d.push_back(a);
+
+    int n = d.size();
+    for (int i = 1; i < n; ++i)
+        d[i] += d[i - 1];
+    cout << 2 * accumulate(d.begin(), d.end(), 0) << '\n';
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string line;
+    getline(cin, line);
+    string w, r;
+    cin >> w >> r;
+    stringstream ss(line);
+    string s;
+    ss >> s;
+    if (s == w)
+        cout << w << ' ' << r;
+    else
+        cout << s;
+    while (ss >> s) {
+        cout << ' ';
+        if (s == w)
+            cout << w << ' ' << r;
+        else
+            cout << s;
+    }
+    cout << '\n';
+    return 0;
+}

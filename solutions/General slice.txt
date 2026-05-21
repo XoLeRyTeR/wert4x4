@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int l, r, n;
+    string s;
+    cin >> n >> l >> r >> s;
+    cout << string(s.begin() + l - 1, s.begin() + r) << '\n';
+    return 0;
+}

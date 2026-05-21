@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string line;
+    getline(cin, line);
+    bool space_is_printed = false;
+    for (auto let : line)
+        if (let == ' ') {
+            if (space_is_printed)
+                continue;
+            cout << ' ';
+            space_is_printed = true;
+        }
+        else {
+            cout << let;
+            space_is_printed = false;
+        }
+    return 0;
+}

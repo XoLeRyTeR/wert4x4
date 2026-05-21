@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+#define all(X) X.begin(), X.end()
+
+using namespace std;
+
+int main() {
+    string s, t;
+    cin >> s >> t;
+    sort(all(s));
+    sort(all(t));
+    cout << (s == t ? "YES" : "NO") << '\n';
+    return 0;
+}

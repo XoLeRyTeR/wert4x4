@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string solve(int n) {
+    char let = 'A';
+    string res = "A";
+    for (int i = 1; i < n; ++i)
+        res = res + (++let) + res;
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << solve(n) << '\n';
+
+    return 0;
+}

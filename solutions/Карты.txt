@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    cout << n;
+    if (n >= 5 && n <= 20) {
+        cout << " kart";
+        return 0;
+    }
+
+    switch (n % 10) {
+    case 1:
+        cout << " karta";
+        break;
+    case 2:
+    case 3:
+    case 4:
+        cout << " karty";
+        break;
+    default:
+        cout << " kart";
+        break;
+    }
+    cout << '\n';
+    return 0;
+}

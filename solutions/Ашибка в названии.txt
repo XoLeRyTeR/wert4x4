@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string line;
+    getline(cin, line);
+    stringstream ss(line);
+    string s, ans;
+    while (ss >> s)
+        ans += s;
+    int n;
+    cin >> n; cin.ignore();
+    for (int i = 0; i < n; ++i) {
+        getline(cin, line);
+        stringstream ss(line);
+        string s, test;
+        while (ss >> s)
+            test += s;
+        cout << (test == ans ? "Yes" : "No") << '\n';
+    }
+    return 0;
+}

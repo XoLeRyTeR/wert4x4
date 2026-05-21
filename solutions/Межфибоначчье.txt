@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int f[15] = {0, 1};
+    for (int i = 2; i < 15; ++i)
+        f[i] = f[i - 2] + f[i - 1];
+    int ind = upper_bound(f, f + 15, n) - f;
+    cout << f[ind - 1] << ' ' << f[ind] << '\n';
+    return 0;
+}

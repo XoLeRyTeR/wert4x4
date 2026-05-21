@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    set <string> old_v, new_v, all;
+    int n, m;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        string s; cin >> s;
+        old_v.insert(s);
+        all.insert(s);
+    }
+    cin >> m;
+    for (int i = 0; i < m; ++i) {
+        string s; cin >> s;
+        new_v.insert(s);
+        all.insert(s);
+    }
+    vector <string> added, removed;
+    for (auto s : all)
+        if (old_v.count(s) && new_v.count(s) == 0)
+            removed.push_back(s);
+        else if (new_v.count(s) && old_v.count(s) == 0)
+            added.push_back(s);
+    cout << added.size() << ' ' << removed.size() << '\n';
+    for (auto a : added)
+        cout << "added " << a << '\n';
+    for (auto r : removed)
+        cout << "removed " << r << '\n';
+    return 0;
+}

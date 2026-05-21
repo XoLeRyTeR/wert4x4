@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int a[n][n];
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            cin >> a[i][j];
+    int x, y;
+    cin >> x >> y;
+    --x; --y;
+    for (int i = 0; i < n; ++i) {
+        if (i == x)
+            continue;
+        for (int j = 0; j < n; ++j) {
+            if (j == y)
+                continue;
+            cout << a[i][j] << ' ';
+        }
+        cout << '\n';
+    }
+    return 0;
+}

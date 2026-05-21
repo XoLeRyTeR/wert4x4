@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int d = 0, s = 0;
+    for (int i = 0; i < n * n; ++i) {
+        string item;
+        cin >> item;
+        if (item == "X")
+            ++d;
+        else
+            s += stoi(item);
+    }
+    cout << "Damaged: " << d << '\n';
+    cout << "Sum: " << s << '\n';
+    return 0;
+}

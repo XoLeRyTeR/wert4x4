@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    string s;
+    cin >> n >> s;
+    string max = s, min = s;
+    sort(max.rbegin(), max.rend());
+    sort(min.begin(), min.end());
+    cout << max << '\n';
+    if (min[0] == '0')
+        for (int i = 1; i < n; ++i)
+            if (min[i] != '0') {
+                swap(min[0], min[i]);
+                break;
+            }
+    cout << min << '\n';
+    return 0;
+}

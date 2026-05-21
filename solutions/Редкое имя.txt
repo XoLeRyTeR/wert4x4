@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#define all(X) X.begin(), X.end()
+
+using namespace std;
+
+int main() {
+    string line;
+    map <string, int> names;
+    while (getline(cin, line)) {
+        stringstream fullname(line);
+        string surname, name, patronymic;
+        fullname >> surname >> name >> patronymic;
+        ++names[name];
+    }
+    vector <pair <int, string>> ans;
+    for (const auto& [name, count] : names)
+        ans.emplace_back(count, name);
+    sort(all(ans));
+    cout << ans[0].second << '\n';
+    return 0;
+}

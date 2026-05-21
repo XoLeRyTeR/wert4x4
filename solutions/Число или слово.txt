@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool is_number(const string& s) {
+    for (auto let : s)
+        if (!isdigit(let))
+            return false;
+    return true;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        string s;
+        cin >> s;
+        cout << (is_number(s) ? "Number" : "Word") << '\n';
+    }
+    return 0;
+}

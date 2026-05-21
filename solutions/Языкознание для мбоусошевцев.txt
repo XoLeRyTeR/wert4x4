@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    cout << "la " << s << '\n';
+    cout << "die " << s << "schaft\n";
+    cout << s << "tto\n";
+    return 0;
+}

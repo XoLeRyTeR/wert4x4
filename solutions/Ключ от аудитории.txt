@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, m, k, p;
+    cin >> n >> m >> k >> p;
+    int a[n], b[m], c[k], d[p];
+    for (int i = 0; i < n; ++i)
+        cin >> a[i];
+    for (int i = 0; i < m; ++i)
+        cin >> b[i];
+    for (int i = 0; i < k; ++i)
+        cin >> c[i];
+    for (int i = 0; i < p; ++i)
+        cin >> d[i];
+    set <int> can(a, a + n);
+    can.insert(b, b + m);
+    for (auto num : d)
+        can.erase(num);
+    vector <int> ans;
+    for (auto num : set<int>(c, c + k))
+        if (can.count(num) == 1)
+            ans.push_back(num);
+    cout << ans.size() << '\n';
+    for (auto w : ans)
+        cout << w << ' ';
+    cout << '\n';
+    return 0;
+}

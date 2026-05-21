@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int h;
+    cin >> h;
+    int up = h - 3;
+    int w = 1 + (up - 1) * 2;
+    string lines[h];
+    for (int i = 0; i < h; ++i)
+        lines[i].assign(w, '.');
+    for (int i = 0; i < h - 3; ++i)
+        for (int j = w / 2 - i; j <= w / 2 + i; ++j)
+            lines[i][j] = '*';
+    for (int i = h - 3; i < h; ++i) {
+        lines[i][w / 2] = ' ';
+        lines[i][w / 2 - 1] = '|';
+        lines[i][w / 2 + 1] = '|';
+    }
+    for (int i = 0; i < h; ++i)
+        cout << lines[i] << '\n';
+    return 0;
+}

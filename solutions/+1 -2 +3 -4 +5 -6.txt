@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+#define all(X) X.begin(), X.end()
+
+using namespace std;
+typedef __int128 ll;
+
+ll sum(ll a, ll b, ll count) {
+    return (a + b) * count / 2;
+}
+
+ll to_int(const string& s) {
+    ll res = 0;
+    for (auto digit : s) {
+        res *= 10;
+        res += digit - '0';
+    }
+    return res;
+}
+
+string to_string(ll n) {
+    string res;
+    while (n != 0) {
+        res += '0' + n % 10;
+        n /= 10;
+    }
+    reverse(all(res));
+    return res;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    ll n = to_int(s);
+    cout << to_string(n % 2 == 1 ?
+        sum(1, n, n / 2 + 1) - sum(2, n - 1, n / 2) :
+        sum(1, n - 1, n / 2) - sum(2, n, n / 2)) << '\n';
+    return 0;
+}

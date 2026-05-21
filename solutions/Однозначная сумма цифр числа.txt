@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int ans = n % 9;
+    if (ans == 0)
+        ans = 9;
+    cout << ans << '\n';
+    return 0;
+}

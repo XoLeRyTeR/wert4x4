@@ -1,0 +1,10 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    cout << fixed << setprecision(6) << pow(n, 1.0 / 5) << '\n';
+    return 0;
+}

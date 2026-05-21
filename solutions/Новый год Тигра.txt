@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cin >> x >> y;
+    while (++x % 12 != y % 12);
+    cout << x << '\n';
+    return 0;
+}

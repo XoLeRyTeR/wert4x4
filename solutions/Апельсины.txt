@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, f, m;
+    cin >> n >> f >> m;
+    int x = (n - f + m) / 3;
+    cout << x + f << ' ' << x << ' ' << x - m << '\n';
+    return 0;
+}

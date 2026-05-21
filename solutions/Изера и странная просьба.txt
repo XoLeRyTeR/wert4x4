@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int a[n][m];
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            cin >> a[i][j];
+    int x = 0, y = 0;
+    int max_value = a[0][0];
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            if (a[i][j] > max_value) {
+                x = i;
+                y = j;
+                max_value = a[i][j];
+            }
+    int ans = 0;
+    if (x != 0) {
+        ++ans;
+        for (int j = 0; j < m; ++j)
+            swap(a[0][j], a[x][j]);
+    }
+    if (y != 0) {
+        ++ans;
+        for (int i = 0; i < n; ++i)
+            swap(a[i][0], a[i][y]);
+    }
+    cout << ans << '\n';
+    for (int i = 0; i < n; ++i, cout << '\n')
+        for (int j = 0; j < m; ++j)
+            cout << a[i][j] << ' ';
+    cout << '\n';
+    return 0;
+}

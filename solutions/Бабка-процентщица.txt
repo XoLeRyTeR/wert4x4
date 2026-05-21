@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    double p1, p2;
+    cin >> p1 >> p2;
+    double d1, d2;
+    cin >> d1 >> d2;
+    d1 = (100 - d1) / 100;
+    d2 = (100 - d2) / 100;
+    cout << fixed << setprecision(2);
+    cout << p1 << ' ' << p2 << ' ' << p1 + p2 << '\n';
+    cout << p1 << ' ' << p2 * d2 << ' ' << p1 + p2 * d2 << '\n';
+    cout << p1 * d1 << ' ' << p2 << ' ' << p1 * d1 + p2 << '\n';
+    cout << p1 * d1 << ' ' << p2 * d2 << ' ' << p1 * d1 + p2 * d2 << '\n';
+    return 0;
+}

@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int numsum(int n) {
+    int res = 0;
+    while (n) {
+        res += n % 10;
+        n /= 10;
+    }
+    return res;
+}
+
+int numlen(int n) {
+    int res = 0;
+    while (n) {
+        n /= 10;
+        ++res;
+    }
+    return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int x = 1;
+    while (n != 0) {
+        if (numsum(x) == numlen(x)) {
+            cout << x << '\n';
+            --n;
+        }
+        ++x;
+    }
+    return 0;
+}

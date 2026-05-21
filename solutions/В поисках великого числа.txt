@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    string m;
+    cin >> n >> m;
+    cout << m << string(n - m.size(), '0') << '\n';
+    return 0;
+}

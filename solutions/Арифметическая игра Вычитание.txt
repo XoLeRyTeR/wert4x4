@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int a, d, e, f;
+    cin >> a >> d >> e >> f;
+    int ans = e * 10 + f;
+    for (int b = 0; b <= 9; ++b)
+        for (int c = 0; c <= 9; ++c)
+            if (a * 10 + b - (c * 10 + d) == ans) {
+                cout << b << ' ' << c << '\n';
+                return 0;
+            }
+    return 0;
+}

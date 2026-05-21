@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    int num = 0, sum = 0;
+    for (auto let : s) {
+        if (isdigit(let)) {
+            num *= 10;
+            num += let - '0';
+        }
+        else if (let == ',') {
+            sum += num;
+            num = 0;
+        }
+        else if (let == ';') {
+            cout << sum + num << ' ';
+            num = 0;
+            sum = 0;
+        }
+    }
+    cout << sum + num << '\n';
+    return 0;
+}

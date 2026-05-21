@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+    set <int> u;
+    for (int i = 0; i < n; ++i) {
+        int x;
+        cin >> x;
+        u.insert(x);
+    }
+    set <int> ans;
+    for (int i = 1; i <= k; ++i)
+        if (u.count(i) == 0)
+            ans.insert(i);
+    cout << ans.size() << '\n';
+    for (auto a : ans)
+        cout << a << ' ';
+    cout << '\n';
+    return 0;
+}

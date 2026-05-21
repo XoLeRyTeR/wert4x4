@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string w;
+    map <string, int> ans;
+    while (cin >> w)
+        ++ans[w];
+    cout << ans[w] - 1 << '\n';
+    return 0;
+}

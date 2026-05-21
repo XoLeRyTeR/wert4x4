@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string t, m;
+    cin >> t >> m;
+    if (t == "INT") {
+        int a, b;
+        cin >> a >> b;
+        cout << a + b << '\n';
+    }
+    else {
+        string a, b;
+        cin >> a >> b;
+        cout << a + b << '\n';
+    }
+    return 0;
+}

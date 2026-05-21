@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#define all(X) X.begin(), X.end()
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int a[n];
+    vector <int> b;
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+        if (a[i] > 0)
+            b.push_back(a[i]);
+    }
+    cout << (b.empty() ? 0 : *min_element(all(b))) << '\n';
+    for (int i = 0; i < n; ++i)
+        cout << a[i] << ' ';
+    cout << '\n';
+    return 0;
+}

@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+
+int main() {
+    ll a, b, t;
+    cin >> a >> b >> t;
+    cout << (t % (a + b) < a ? "Anivia" : "Eggnivia") << '\n';
+    return 0;
+}

@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int s;
+    cin >> s;
+    int ans = 1 + s, a = 1;
+    for (int i = 2; i <= s; ++i)
+        if (s % i == 0 && ans > i + s / i) {
+            a = i;
+            ans = i + s / i;
+        }
+    cout << a << ' ' << s / a << '\n';
+    return 0;
+}

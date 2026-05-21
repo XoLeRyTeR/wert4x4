@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+#define all(X) X.begin(), X.end()
+
+using namespace std;
+
+int mid(const map <int, int>& counts) {
+    for (const auto [key, value] : counts)
+        if (value % 2 == 1)
+            return key;
+    return -1;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    map <int, int> x;
+    for (int i = 0; i < n; ++i) {
+        int a; cin >> a;
+        ++x[a];
+    }
+    vector <int> v;
+    for (const auto [key, value] : x) {
+        auto ins = vector<int>(value / 2, key);
+        v.insert(v.end(), all(ins));
+    }
+    vector <int> rev_v = v;
+    reverse(all(rev_v));
+    vector <int> ans;
+    if (auto m = mid(x); m != -1) {
+        ans = v;
+        ans.push_back(m);
+        ans.insert(ans.end(), all(rev_v));
+    }
+    else {
+        ans = v;
+        ans.insert(ans.end(), all(rev_v));
+    }
+    cout << ans.size() << '\n';
+    for (auto a : ans)
+        cout << a << ' ';
+    cout << '\n';
+    return 0;
+}

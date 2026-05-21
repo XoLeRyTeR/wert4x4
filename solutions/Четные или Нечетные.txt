@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    int sums[2] = {0, 0};
+    for (int i = a; i <= b; ++i)
+        sums[abs(i) % 2] += i;
+    if (sums[0] > sums[1]) {
+        cout << "1\n";
+        return 0;
+    }
+    if (sums[0] == sums[1]) {
+        cout << "0\n";
+        return 0;
+    }
+    cout << "2\n";
+    return 0;
+}

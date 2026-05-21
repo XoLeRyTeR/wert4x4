@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int h;
+    cin >> h;
+    int w = h;
+    for (int i = 0; i < h; ++i) {
+        cout << string(w, '0' + (i + 1) % 10) << '\n';
+        --w;
+    }
+    return 0;
+}

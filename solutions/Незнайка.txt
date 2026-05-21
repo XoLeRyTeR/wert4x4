@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector <int> divs = {2, 3, 5, 7, 9};
+    for (auto div : divs)
+        while (n % div == 0)
+            n /= div;
+    cout << (n == 1 ? "Yes" : "No") << '\n';
+    return 0;
+}

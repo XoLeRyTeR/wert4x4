@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    char let;
+    cin >> let;
+    let = islower(let) ? toupper(let) : tolower(let);
+    cout << let << '\n';
+    return 0;
+}

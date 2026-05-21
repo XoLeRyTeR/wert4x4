@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    pair <int, string> nums[3];
+    nums[0].second = "First";
+    nums[1].second = "Second";
+    nums[2].second = "Third";
+    for (int i = 0; i < 3; ++i)
+        cin >> nums[i].first;
+    sort(nums, nums + 3);
+    cout << nums[2].second << '\n';
+    return 0;
+}

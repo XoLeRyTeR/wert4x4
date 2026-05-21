@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    string ans;
+    for (int i = 0; i < n; ++i) {
+        string oper, name;
+        cin >> oper >> name;
+        if (oper[0] == 'S') {
+            if (ans.empty())
+                ans = name;
+        }
+        else {
+            if (ans == name)
+                ans.clear();
+        }
+    }
+    if (ans.empty())
+        cout << "NO\n";
+    else {
+        cout << "YES\n";
+        cout << ans << '\n';
+    }
+    return 0;
+}

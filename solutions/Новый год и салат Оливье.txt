@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+#define all(X) X.begin(), X.end()
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    set <char> need = {'S', 'P', 'C', 'E', 'M'};
+    cout << (set<char>(all(s)) == need ? "YES" : "NO") << '\n';
+    return 0;
+}

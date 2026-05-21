@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string n;
+    cin >> n;
+    int len = n.size();
+    char digit = n[0];
+    int index = 0;
+    for (int i = 1; i < len; ++i)
+        if (n[i] <= digit) {
+            digit = n[i];
+            index = i;
+        }
+    cout << index + 1 << '\n';
+    return 0;
+}

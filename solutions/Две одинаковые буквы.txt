@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    map <char, int> lets;
+    for (char let : s)
+        if (++lets[let] == 2) {
+            cout << let << '\n';
+            return 0;
+        }
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int sum = 1, num = 1;
+    cout << "1";
+    for (int i = 1; i < n; ++i) {
+        num += 2;
+        cout << " + " << num;
+        sum += num;
+    }
+    cout << '\n';
+    cout << sum << '\n';
+    return 0;
+}

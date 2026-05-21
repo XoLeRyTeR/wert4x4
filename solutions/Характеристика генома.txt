@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    string s;
+    cin >> n >> s;
+    map <char, int> ans;
+    for (auto let : s)
+        ++ans[let];
+    for (const auto& [let, count] : ans)
+        cout << let << ' ' << count << '\n';
+    return 0;
+}

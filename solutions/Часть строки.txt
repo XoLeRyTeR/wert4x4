@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string spacing(const string& s) {
+    return ' ' + s + ' ';
+}
+
+int main() {
+    string line;
+    getline(cin, line);
+    line = spacing(line);
+    string a, b;
+    cin >> a >> b;
+    a = spacing(a);
+    b = spacing(b);
+    auto first = line.find(a) + a.size() - 1;
+    auto last = line.rfind(b) + 1;
+    for (auto i = first; i < last; ++i)
+        cout << line[i];
+    cout << '\n';
+    return 0;
+}

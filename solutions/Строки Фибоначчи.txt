@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector <string> nums = {"a", "b"};
+    for (int i = 1; i < n; ++i)
+        nums.push_back(nums[nums.size() - 1] + nums[nums.size() - 2]);
+    cout << nums[n] << '\n';
+    return 0;
+}

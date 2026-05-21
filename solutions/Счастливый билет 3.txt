@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+#define all(X) X.begin(), X.end()
+#define dig(X) (X - '0')
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    while (s.size() != 3)
+        s += '0';
+    sort(all(s));
+    cout << (dig(s[0]) + dig(s[1]) == dig(s[2]) ? dig(s[2]): dig(s[0]) + dig(s[1])) << '\n';
+    return 0;
+}

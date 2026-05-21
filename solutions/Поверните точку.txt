@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    double x, y, a;
+    cin >> x >> y >> a;
+    a *= M_PI / 180.0;
+
+    double x_new = +x * cos(a) + y * sin(a);
+    double y_new = -x * sin(a) + y * cos(a);
+    cout << fixed << setprecision(6) << x_new << " " << y_new << '\n';
+
+    return 0;
+}

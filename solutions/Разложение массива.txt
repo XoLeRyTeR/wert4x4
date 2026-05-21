@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#define print_arr(X) {          \
+    for (auto item : X)         \
+        cout << item << ' ';    \
+    cout << '\n';               \
+}
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector <int> a, b, c;
+    for (int i = 0; i < n; ++i) {
+        int x;
+        cin >> x;
+        a.push_back(x);
+        if (x > 0)
+            b.push_back(x);
+        if (x < 0)
+            c.push_back(x);
+    }
+    print_arr(b)
+    print_arr(c)
+    print_arr(a)
+    return 0;
+}

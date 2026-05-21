@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, k, q;
+    cin >> n >> k >> q;
+    map <string, string> dir;
+    for (int i = 0; i < n; ++i) {
+        string server;
+        cin >> server >> dir[server];
+    }
+    for (int i = 0; i < q; ++i) {
+        string server;
+        cin >> server;
+        if (dir.find(server) == dir.end())
+            cout << server << '\n';
+        else {
+            int iter = 0;
+            string v = dir[server];
+            while (iter != k) {
+                if (dir.find(v) == dir.end()) {
+                    cout << v << '\n';
+                    break;
+                }
+                v = dir[v];
+                ++iter;
+            }
+            if (iter == k)
+                cout << "TOO MANY REDIRECTS\n";
+        }
+    }
+    return 0;
+}

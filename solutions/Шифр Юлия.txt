@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    string s;
+    int k;
+    cin >> s >> k;
+    for (auto let : s) {
+        int num = (26 + let - 'A' - k) % 26;
+        cout << char('A' + num);
+    }
+    cout << '\n';
+    return 0;
+}

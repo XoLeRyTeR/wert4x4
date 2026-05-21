@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int a[2], b[2];
+    cin >> a[0] >> a[1];
+    cin >> b[0] >> b[1];
+    sort(a, a + 2);
+    sort(b, b + 2);
+    if (a[0] > b[1]) {
+        cout << "WIN\n";
+        return 0;
+    }
+    if (b[0] > a[1]) {
+        cout << "LOSE\n";
+        return 0;
+    }
+    cout << "UNKNOWN\n";
+    return 0; 
+}

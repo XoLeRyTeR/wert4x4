@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, t, k;
+    cin >> n >> t >> k;
+    int ans = 0;
+    while (n < t) {
+        n += min(k, n);
+        ++ans;
+    }
+    cout << ans << '\n';
+    return 0;
+}

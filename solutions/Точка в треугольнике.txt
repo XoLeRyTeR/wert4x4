@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct Point {
+    int x, y;
+};
+
+int area(Point A, Point B, Point C) {
+    return abs((B.x - A.x) * (C.y - A.y) - (C.x - A.x) * (B.y - A.y));
+}
+
+int main() {
+    Point A, B, C, D;
+    cin >> A.x >> A.y >> B.x >> B.y >> C.x >> C.y >> D.x >> D.y;
+
+    auto abc = area(A, B, C);
+    auto abd = area(A, B, D);
+    auto bcd = area(B, C, D);
+    auto cad = area(C, A, D);
+
+    cout << (abd + bcd + cad == abc) << '\n';
+    return 0;
+}

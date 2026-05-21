@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct Point {
+    int x, y;
+};
+
+double area(Point A, Point B, Point C) {
+    return abs((B.x - A.x) * (C.y - A.y) - (C.x - A.x) * (B.y - A.y)) / 2.0;
+}
+
+int main() {
+    Point A, B, C, D, E, F;
+    cin >> A.x >> A.y >> B.x >> B.y >> C.x >> C.y;
+    cin >> D.x >> D.y >> E.x >> E.y >> F.x >> F.y;
+    cout << fixed << setprecision(6);
+    cout << area(A, B, C) << '\n';
+    cout << area(D, E, F) << '\n';
+
+    return 0;
+}

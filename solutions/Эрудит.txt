@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int n;
+string s;
+
+string ans;
+set <char> lets;
+
+void dfs(char let) {
+    ans += let;
+    lets.insert(let);
+
+    cout << ans << '\n';
+
+    if (lets.size() < n)
+        for (auto let : s)
+            if (lets.count(let) == 0)
+                dfs(let);
+
+    ans.pop_back();
+    lets.erase(let);
+}
+
+int main() {
+    cin >> s;
+    n = s.size();
+
+    for (auto let : s)
+        dfs(let);
+
+    return 0;
+}

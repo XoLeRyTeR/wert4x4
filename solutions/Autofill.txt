@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    map <string, int> x;
+    for (int i = 0; i < n; ++i) {
+        string w;
+        cin >> w;
+        ++x[w];
+    }
+    int ans = 0;
+    vector <string> roles = {"top", "mid", "bottom", "jungle", "support"};
+    for (const auto& role : roles)
+        if (x[role] == 0)
+            ans += 2;
+        else if (x[role] == 1)
+            ++ans;
+    cout << ans << '\n';
+    return 0;
+}
