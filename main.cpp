@@ -66,20 +66,23 @@ int main() {
         Task task;
 
         ss >> task.letter;
-        // ������ �������� ������ (����� ��������� �������)
-        string title_part;
-        getline(ss, title_part, '\t'); // ���������� ������ ���
-        getline(ss, task.title, '\t');
 
-        while(task.title[task.title.size()-1]==' '){
-            task.title.pop_back();
+        vector<string> parts;
+        string temp;
+
+        while (ss >> temp)
+            parts.push_back(temp);
+
+        task.output_type = parts.back(); parts.pop_back();
+        task.input_type = parts.back(); parts.pop_back();
+        task.memory = stoi(parts.back()); parts.pop_back();
+        task.difficulty = stoi(parts.back()); parts.pop_back();
+
+        task.title = "";
+        for (int i = 0; i < parts.size(); i++) {
+            if (i) task.title += " ";
+            task.title += parts[i];
         }
-
-
-        ss >> task.difficulty;
-        ss >> task.memory;
-        ss >> task.input_type;
-        ss >> task.output_type;
 
         // ��������� ������� ����� � ��������
         string filename = "solutions/" + task.title + ".txt";
