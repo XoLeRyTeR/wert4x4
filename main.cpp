@@ -21,16 +21,17 @@ struct Task {
     long long file_size;
 };
 
-// Функция для получения размера файла
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 long long get_file_size(const string& filename) {
     ifstream file(filename, ios::binary | ios::ate);
     if (!file.is_open()) {
+        cout<<filename<<endl;
         return -1;
     }
     return file.tellg();
 }
 
-// Функция для копирования в буфер обмена
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 void copy_to_clipboard(const string& str) {
     if (OpenClipboard(nullptr)) {
         EmptyClipboard();
@@ -52,30 +53,35 @@ int main() {
     vector <Task> tasks;
     string line;
 
-    cout << "Введите (завершите ввод пустой строкой):\n";
+    cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ):\n";
 
-    // Чтение ввода до строки "END"
+    // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ "END"
     while (getline(cin, line)) {
         if (line == "") {
             break;
         }
 
-        // Разбор строки
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         stringstream ss(line);
         Task task;
 
         ss >> task.letter;
-        // Чтение названия задачи (может содержать пробелы)
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
         string title_part;
-        getline(ss, title_part, '\t'); // пропускаем первый таб
+        getline(ss, title_part, '\t'); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
         getline(ss, task.title, '\t');
+
+        while(task.title[task.title.size()-1]==' '){
+            task.title.pop_back();
+        }
+
 
         ss >> task.difficulty;
         ss >> task.memory;
         ss >> task.input_type;
         ss >> task.output_type;
 
-        // Проверяем наличие файла с решением
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         string filename = "solutions/" + task.title + ".txt";
         task.file_size = get_file_size(filename);
         task.has_solution = (task.file_size != -1);
@@ -83,10 +89,10 @@ int main() {
         tasks.push_back(task);
     }
 
-    // Очищаем экран
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     system("cls");
 
-    // Фильтруем задачи с решениями
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     vector <Task> tasks_with_solutions;
     for (const auto& task : tasks) {
         if (task.has_solution) {
@@ -94,20 +100,20 @@ int main() {
         }
     }
 
-    // Сортируем задачи с решениями по размеру файла
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     sort(tasks_with_solutions.begin(), tasks_with_solutions.end(),
         [](const Task& a, const Task& b) {
             return a.file_size < b.file_size;
         });
 
-    // Выводим доступные задачи в одну строку
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     if (tasks_with_solutions.empty()) {
-        cout << "Решений не найдено!\n";
+        cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!\n";
         system("PAUSE");
         return 0;
     }
 
-    cout << "Доступно: ";
+    cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     for (size_t i = 0; i < tasks_with_solutions.size(); i++) {
         cout << tasks_with_solutions[i].letter;
         if (i < tasks_with_solutions.size() - 1) {
@@ -116,13 +122,13 @@ int main() {
     }
     cout << "\n\n";
 
-    // Основной цикл получения решений
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     while (true) {
-        cout << "Введите букву (Ctrl+C для выхода): ";
+        cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (Ctrl+C пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ): ";
 
         string input;
         if (!getline(cin, input)) {
-            // Если произошла ошибка ввода (например, Ctrl+C), выходим
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, Ctrl+C), пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             break;
         }
 
@@ -131,7 +137,7 @@ int main() {
 
         char choice = toupper(input[0]);
 
-        // Ищем задачу с такой буквой
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         Task* selected_task = nullptr;
         for (auto& task : tasks_with_solutions)
             if (task.letter == choice) {
@@ -149,15 +155,15 @@ int main() {
                 solution_file.close();
 
                 copy_to_clipboard(solution_content.str());
-                cout << "Решение задачи " << selected_task->letter << " успешно.\n";
+                cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " << selected_task->letter << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
             }
             else {
-                cout << "Ошибка при чтении файла решения.\n";
+                cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
             }
         }
         else {
-            cout << "Задача с буквой '" << choice << "' не найдена или нет решения.\n";
-            cout << "Доступные задачи: ";
+            cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ '" << choice << "' пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+            cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
             for (size_t i = 0; i < tasks_with_solutions.size(); i++) {
                 cout << tasks_with_solutions[i].letter;
                 if (i < tasks_with_solutions.size() - 1) {
